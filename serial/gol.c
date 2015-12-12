@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "timer.h"
 
 #define DEBUG 1
 
@@ -46,6 +47,9 @@ int main(int argc, char ** argv)
 	// Loop variables
 	int i, j, a, b;
 
+	// Timer variables
+	double start, end;
+
 	// Matrix A holds the values of the initial states
 	A = (int **) calloc(height, sizeof(int *));
 
@@ -69,11 +73,13 @@ int main(int argc, char ** argv)
 		}
 	}
 	
+	start = get_time();	
+
 	// Iterate through as many life cycles as specified by the user.
 	while (count > 0)
 	{
 		// Print out the current state of the matrix
-        	for(i = 0; i < height; i++)
+        	/*for(i = 0; i < height; i++)
 		{
                		for(j = 0; j < width; j++)
                		{
@@ -81,7 +87,7 @@ int main(int argc, char ** argv)
 			}
                         printf("\n");
  	        }
-		printf("\n");
+		printf("\n");*/
 		for(i = 0; i < height; i++)
 		{
 			for(j = 0; j < width; j++)
@@ -310,6 +316,9 @@ int main(int argc, char ** argv)
 		}
 	}
 	
+	end = get_time();
+	printf("Elapsed time %g\n", (end - start));
+
 	// Free allocated space to matrices
 	for (i = 0; i < height; i++)
 	{
