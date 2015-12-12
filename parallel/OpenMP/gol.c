@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <omp.h>
+#include "timer.h"
 
 #define DEBUG 1
 
