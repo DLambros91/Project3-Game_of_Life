@@ -44,6 +44,9 @@ int main(int argc, char ** argv)
 	// Life counter determines the state of the next cell
 	int lifecounter = 0;
 	
+	//Time Variables
+	double start, end;
+	
 	// Loop variables
 	int i, j, a, b;
 
@@ -69,6 +72,8 @@ int main(int argc, char ** argv)
 			B[i][j] = 0;
 		}
 	}
+	
+	start = get_time();
 	
 	// Iterate through as many life cycles as specified by the user.
 	while (count > 0)
@@ -333,6 +338,9 @@ int main(int argc, char ** argv)
 			}
 		}
 	}
+	
+	end = get_time();
+	printf("Elapsed time %g\n",(end - start));
 	
 	// Free allocated space to matrices
 	#pragma omp parallel for
